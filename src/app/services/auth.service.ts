@@ -1,0 +1,22 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Usuario, UsuarioLogin } from '../interfaces/usuario';
+import { UsuarioService } from './usuario.service';
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  //Nombre de usuario (PK) que se recogerá desde el sessionStorage.
+  username!:string;
+
+  constructor(private http:HttpClient) {
+    this.username=<string>sessionStorage.getItem("usuarioActivo");
+  }
+
+  iniciarSesion(credentials: UsuarioLogin): Observable<any> {
+    const url = 'http://localhost:8080/login';
+    return this.http.post<any>(url, credentials, {observe:'response'});
+  }
+  
+}
