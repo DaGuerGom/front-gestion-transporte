@@ -1,0 +1,72 @@
+
+
+#logtipoNegro {
+    width:30vw;
+    margin-top: 2%;
+    margin-right: 2%;    
+}
+
+@media (max-width:1199px) and (min-width: 992px) {#logtipoNegro {width:35vw;}}
+@media (max-width: 991px) and (min-width: 768px) {#logtipoNegro {width:40vw;}}
+@media (max-width: 767px) and (min-width: 576px) {#logtipoNegro {width:50vw;}}
+@media (max-width: 575px) {#logtipoNegro {width:70vw;}}
+
+
+#login{
+    border-radius: 5px;
+    border: 2px solid black;
+    box-shadow:  18px 15px 17px #606060,
+             -25px -15px 17px #ffffff;
+    margin-top: 2%;
+    margin-bottom:10vh;
+    background-color: rgb(255, 247, 0);
+    padding-bottom: 8vh;
+
+    & header{
+        padding-top: 7vh;
+        height: auto;
+
+        & hr{
+            width:130%;
+            background-color: black;
+        }
+    }
+
+    & #cuerpo{
+
+        & label{
+            padding:0;
+            padding-top: 1vh;
+        }
+
+        & input{
+            height:6vh;
+            &::placeholder{
+                text-align: center;
+                opacity: 50%;
+            }
+        }
+
+        & span{
+            font-size: 12px;
+            & a{
+                text-decoration: none;
+                &:hover{
+                    text-decoration: underline;
+                    color:black;
+                }
+            }
+        }
+
+        & #boton{
+            margin-top:1vh;
+            
+            color: white;
+            border: 1px solid white;
+            padding: 1.5vh;
+            border-radius: 3px;
+            background-color: black;
+            cursor: pointer;
+        }
+    }
+}
