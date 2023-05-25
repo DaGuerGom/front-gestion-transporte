@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { UsuarioLogin } from '../interfaces/usuario';
+import { UsuarioService } from '../services/usuario.service';
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.component.html',
@@ -19,8 +20,9 @@ export class InicioSesionComponent {
     }
     this.authService.iniciarSesion(usuario).subscribe(
       (resp)=>{
-        console.log("Credenciales correctas")
-        //this.router.navigate(["/inicio"]);
+        sessionStorage.setItem('usuarioActivo',resp.body.username)
+        let ruta=(resp.body.tipo=="al")?"/home-alumno":"/home-conductor";
+        this.router.navigate([ruta]);
       },
       (error)=>{
         console.log("Credenciales incorrectas")
