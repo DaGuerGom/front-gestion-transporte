@@ -1,0 +1,66 @@
+
+<div class="container-fluid">
+    
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6 col-xl-4" id="login">
+            <div class="row d-flex justify-content-center">
+                <div class="col-12">
+                    <header>
+                        <h3 class="d-flex justify-content-center">REGISTRO</h3>
+                    </header>
+                </div>
+                <div class="col-11">
+                    <hr>
+                </div>
+            </div>
+            <form class="needs-validation">
+            <div class="row d-flex justify-content-center" id="cuerpo">
+                <div class="col-9">
+                    <div class="row">
+                        <label for="username">Nombre de usuario:</label>
+                        <input class="input form-control" type="text" name="username" id="username" [(ngModel)]="username" >
+                        <div class="invalid-tooltip">El nombre de usuario debe ser válido: No estar vacío y no tener espacios</div>
+                    </div>
+                </div>
+                <div class="col-9 pt-4">
+                    <div class="row">
+                        <label for="email">Email</label>
+                        <input class="input form-control" type="email" name="email" id="email" [(ngModel)]="email">
+                        <div class="invalid-tooltip">Escriba una dirección de correo válida</div>
+                    </div>
+                </div>
+                <div class="col-9 pt-4">
+                    <div class="row">
+                        <label for="contrasenna">Contraseña</label>
+                        <input class="input form-control" type="password" name="contrasenna" id="contrasenna" [(ngModel)]="password">
+                        <div class="invalid-tooltip">La contraseña debe tener entre 8 y 16 caracteres, y al menos una mayúscula, una minúscula y un carácter no alfanumérico</div>
+                    </div>
+                </div>
+                <div class="col-9 pt-4">
+                    <div class="row">
+                        <label for="contrasenna2">Repetir Contraseña</label>
+                        <input class="input form-control" type="password" name="contrasenna2" id="contrasenna2" [(ngModel)]="password2">
+                        <div class="invalid-tooltip">Las contraseñas deben coincidir y seguir el mismo patrón</div>
+                    </div>
+                </div>
+                <div class="col-9 pt-4">
+                    
+                    <div class="row">
+                        Tipo de usuario:
+                        <div class="row">
+                        <div class="col-md-6 col-12"><input type="radio" name="tipo" id="alumno" value="al" class="radio" checked [(ngModel)]="tipo"><label for="alumno">Alumno</label></div>
+                        <div class="col-md-6 col-12"><input type="radio" name="tipo" id="conductor" value="c" class="radio" [(ngModel)]="tipo"><label for="conductor">Conductor</label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 pt-5 d-flex justify-content-center align-items-center">
+                    <button id="boton" (click)="registrar()">Registrar</button>
+                </div>
+                <div class="col-9 justify-content-center d-flex pt-3 p-0">
+                    <span>¿Ya tienes una cuenta? <a routerLink="">Iniciar sesión</a></span>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>

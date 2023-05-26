@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { UsuarioLogin } from '../interfaces/usuario';
-import { UsuarioService } from '../services/usuario.service';
+
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.component.html',
@@ -21,7 +21,16 @@ export class InicioSesionComponent {
     this.authService.iniciarSesion(usuario).subscribe(
       (resp)=>{
         sessionStorage.setItem('usuarioActivo',resp.body.username)
-        let ruta=(resp.body.tipo=="al")?"/home-alumno":"/home-conductor";
+        let ruta="";
+        if (resp.body.admitido=="S") {
+          ruta=(resp.body.tipo=="al")?"/home-alumno":"/home-conductor";
+        }
+        else if(resp.body.admitido=="P"){
+          ruta="/espera"
+        }
+        else{
+          ruta="/rechazado"
+        }
         this.router.navigate([ruta]);
       },
       (error)=>{
