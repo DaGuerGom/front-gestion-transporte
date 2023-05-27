@@ -5,10 +5,14 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { HomeAlumnoComponent } from './home-alumno/home-alumno.component';
 import { HomeConductorComponent } from './home-conductor/home-conductor.component';
 import { RegistroComponent } from './registro/registro.component';
+import { EnEsperaComponent } from './en-espera/en-espera.component';
+import { RechazadoComponent } from './rechazado/rechazado.component';
 
 const routes:Routes=[
   {path: "", component: InicioSesionComponent},
-  {path:"registro",component:RegistroComponent},
+  {path: "registro",component:RegistroComponent},
+  {path: "espera", component: EnEsperaComponent},
+  {path: "rechazado", component: RechazadoComponent},
   {path: "home-alumno", component: HomeAlumnoComponent},
   {path: "home-conductor", component: HomeConductorComponent},
 ]

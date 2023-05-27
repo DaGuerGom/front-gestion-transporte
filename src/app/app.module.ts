@@ -10,6 +10,8 @@ import { HomeAlumnoComponent } from './home-alumno/home-alumno.component';
 import { HomeConductorComponent } from './home-conductor/home-conductor.component';
 import { MenuComponent } from './menu/menu.component';
 import { RegistroComponent } from './registro/registro.component';
+import { EnEsperaComponent } from './en-espera/en-espera.component';
+import { RechazadoComponent } from './rechazado/rechazado.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { RegistroComponent } from './registro/registro.component';
     HomeAlumnoComponent,
     HomeConductorComponent,
     MenuComponent,
-    RegistroComponent
+    RegistroComponent,
+    EnEsperaComponent,
+    RechazadoComponent
   ],
   imports: [
     BrowserModule,
