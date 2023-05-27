@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { UsuarioLogin } from '../interfaces/usuario';
@@ -8,11 +8,16 @@ import { UsuarioLogin } from '../interfaces/usuario';
   templateUrl: './inicio-sesion.component.html',
   styleUrls: ['./inicio-sesion.component.css']
 })
-export class InicioSesionComponent {
+export class InicioSesionComponent implements OnInit {
   username:string="";
   password:string="";
 
   constructor(private authService: AuthService, private router:Router){}
+
+  ngOnInit(): void {
+    this.authService.cerrarSesion();
+  }
+
   iniciarSesion():void{
     let usuario:UsuarioLogin={
       username:this.username,
