@@ -28,7 +28,16 @@ export class InicioSesionComponent implements OnInit {
         sessionStorage.setItem('usuarioActivo',resp.body.username)
         let ruta="";
         if (resp.body.admitido=="S") {
-          ruta=(resp.body.tipo=="al")?"/home-alumno":"/home-conductor";
+          switch(resp.body.tipo){
+            case "al":
+              ruta="/home-alumno";
+              break;
+            case "c":
+              ruta="/home-conductor";
+              break;
+            default:
+              ruta="/home-admin";
+          }
         }
         else if(resp.body.admitido=="P"){
           ruta="/espera"

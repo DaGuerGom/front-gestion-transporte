@@ -2,19 +2,20 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { UsuarioService } from '../services/usuario.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConductorGuard implements CanActivate {
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService,private userService:UsuarioService){}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    return this.authService.estaLogueado().pipe(
-      map(estaLogueado => {
-        if (this.authService.user.tipo == "c") {
+    return this.userService.obtenerUsuarioActivo().pipe(
+      map(resp => {
+        if (resp.body.tipo == "c") {
           return true;
         } else {
           this.authService.cerrarSesion();

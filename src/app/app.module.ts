@@ -12,6 +12,7 @@ import { MenuComponent } from './menu/menu.component';
 import { RegistroComponent } from './registro/registro.component';
 import { EnEsperaComponent } from './en-espera/en-espera.component';
 import { RechazadoComponent } from './rechazado/rechazado.component';
+import { HomeAdminComponent } from './home-admin/home-admin.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RechazadoComponent } from './rechazado/rechazado.component';
     MenuComponent,
     RegistroComponent,
     EnEsperaComponent,
-    RechazadoComponent
+    RechazadoComponent,
+    HomeAdminComponent
   ],
   imports: [
     BrowserModule,
