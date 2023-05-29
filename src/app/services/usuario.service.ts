@@ -20,4 +20,9 @@ export class UsuarioService {
     let url="http://localhost:8080/api/v1/users"
     return this.http.post<any>(url,usuario)
   }
+
+  obtenerUsuariosPendientes():Observable<any>{
+    let url = "http://localhost:8080/api/v1/users/en-espera"
+    return this.http.get<any>(url, {observe: 'response' })
+  }
 }
