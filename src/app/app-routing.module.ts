@@ -7,14 +7,20 @@ import { HomeConductorComponent } from './home-conductor/home-conductor.componen
 import { RegistroComponent } from './registro/registro.component';
 import { EnEsperaComponent } from './en-espera/en-espera.component';
 import { RechazadoComponent } from './rechazado/rechazado.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AlumnoGuard } from './guards/alumno.guard';
+import { ConductorGuard } from './guards/conductor.guard';
+
+
+//Guards: Son necesarias cumplir sus condiciones para acceder a la ruta. En caso de que se intente conectar, se cerrará la sesión.
 
 const routes:Routes=[
   {path: "", component: InicioSesionComponent},
   {path: "registro",component:RegistroComponent},
-  {path: "espera", component: EnEsperaComponent},
-  {path: "rechazado", component: RechazadoComponent},
-  {path: "home-alumno", component: HomeAlumnoComponent},
-  {path: "home-conductor", component: HomeConductorComponent},
+  {path: "espera", component: EnEsperaComponent,canActivate:[AuthGuard]},
+  {path: "rechazado", component: RechazadoComponent,canActivate:[AuthGuard]},
+  {path: "home-alumno", component: HomeAlumnoComponent,canActivate:[AuthGuard,AlumnoGuard]},
+  {path: "home-conductor", component: HomeConductorComponent,canActivate:[AuthGuard,ConductorGuard]},
 ]
 
 @NgModule({
