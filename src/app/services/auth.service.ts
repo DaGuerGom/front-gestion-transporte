@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Usuario, UsuarioLogin } from '../interfaces/usuario';
 import { UsuarioService } from './usuario.service';
 import { Router } from '@angular/router';
@@ -23,5 +23,12 @@ export class AuthService {
   cerrarSesion(){
     sessionStorage.removeItem("usuarioActivo")
     this.router.navigate([""])
+  }
+
+  estaLogueado(): Observable<boolean> {
+    if(this.username){
+      return of(true);
+    }
+    return of(false);
   }
 }
