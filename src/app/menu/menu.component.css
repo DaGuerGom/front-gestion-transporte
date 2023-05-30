@@ -11,3 +11,9 @@ html{
     background-color: black;
     color: white !important;
 }
+
+.notificacion{
+    border-radius: 100%;
+    background-color: red;
+    color: white !important;
+}
