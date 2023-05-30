@@ -1,0 +1,14 @@
+<app-menu></app-menu>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-5 col-12 rounded border border-dark mt-4 margen" *ngFor="let usuario of listaUsuarios">
+            <p class="h4 pt-2">{{getTipo(usuario)}}</p>
+            <p class="pt-3">Nombre de usuario: {{usuario.username}}</p>
+            <p>Email: {{usuario.email}}</p>
+            <div class="row d-flex">
+                <div class="col-md-6 col-12 py-3"><button type="button" class="justify-content-center btn btn-dark" (click)="aceptarUsuario(usuario)">Aceptar</button></div>
+                <div class="col-md-6 col-12 py-3"><button type="button" class="justify-content-center btn btn-dark" (click)="rechazarUsuario(usuario)">Rechazar</button></div>
+            </div>
+        </div>
+    </div>
+</div>

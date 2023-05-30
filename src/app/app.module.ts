@@ -13,6 +13,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { EnEsperaComponent } from './en-espera/en-espera.component';
 import { RechazadoComponent } from './rechazado/rechazado.component';
 import { HomeAdminComponent } from './home-admin/home-admin.component';
+import { SolicitudesUsuariosComponent } from './solicitudes-usuarios/solicitudes-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeAdminComponent } from './home-admin/home-admin.component';
     RegistroComponent,
     EnEsperaComponent,
     RechazadoComponent,
-    HomeAdminComponent
+    HomeAdminComponent,
+    SolicitudesUsuariosComponent
   ],
   imports: [
     BrowserModule,
