@@ -35,9 +35,6 @@ export class MenuComponent implements OnInit {
       .then(resp => {
         this.usuariosPendientes=resp.body.length
       })
-    console.log(this.usuarioActivo)
-    console.log(this.rutaHome)
-    console.log(this.usuariosPendientes)
     }
 
   cerrarSesion(){
