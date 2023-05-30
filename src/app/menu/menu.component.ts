@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../services/usuario.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,26 +15,32 @@ export class MenuComponent implements OnInit {
   //se le asignará una ruta distinta.
   rutaHome!:string
 
-  constructor(protected userService: UsuarioService, private router:Router) {}
+  constructor(protected userService: UsuarioService, private router:Router, protected authService:AuthService) {}
 
-  ngOnInit(): void {
-    this.userService.obtenerUsuarioActivo().toPromise()
-      .then(resp => {
-        this.usuarioActivo = resp.body;
-      })
+  async ngOnInit(): Promise<void> {
+      const resp = await this.userService.obtenerUsuarioActivo().toPromise();
+      this.usuarioActivo = resp.body;
+  
+      switch (this.usuarioActivo.tipo) {
+        case "al":
+          this.rutaHome = "/home-alumno";
+          break;
+        case "c":
+          this.rutaHome = "/home-conductor";
+          break;
+        default:
+          this.rutaHome = "/home-admin";
+      }
     this.userService.obtenerUsuariosPendientes().toPromise()
       .then(resp => {
         this.usuariosPendientes=resp.body.length
       })
-    switch(this.usuarioActivo.tipo){
-      case "al":
-        this.rutaHome="/home-alumno"
-        break;
-      case "c":
-        this.rutaHome="/home-conductor"
-        break;
-      default:
-        this.rutaHome="/home-admin"
+    console.log(this.usuarioActivo)
+    console.log(this.rutaHome)
+    console.log(this.usuariosPendientes)
     }
+
+  cerrarSesion(){
+    this.authService.cerrarSesion();
   }
 }

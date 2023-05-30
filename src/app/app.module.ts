@@ -30,7 +30,10 @@ import { HomeAdminComponent } from './home-admin/home-admin.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+  ],
+  exports:[
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

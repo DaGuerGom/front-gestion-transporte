@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg" ngDefault>
     <div class="container-fluid">
       <a class="navbar-brand">Navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,17 +7,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" [routerLink]="rutaHome" aria-current="page">Inicio</a>
+            <a class="nav-link active" routerLinkActive="active" [routerLink]="rutaHome" aria-current="page">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link">Link</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="usuarioActivo.tipo=='ad'">
             <a class="nav-link">Solicitudes de usuarios <span class="notificacion px-2" *ngIf="usuariosPendientes!=0">{{usuariosPendientes}}</span></a>
           </li>
         </ul>
         <div class="d-flex">
-            
+            {{usuarioActivo.username}} |  <span (click)="cerrarSesion()">Cerrar sesión</span>
         </div>
       </div>
     </div>
