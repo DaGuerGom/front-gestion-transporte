@@ -13,7 +13,7 @@
           </li>
         </ul>
         <div class="d-flex">
-            {{usuarioActivo.username}} |  <span (click)="cerrarSesion()">Cerrar sesión</span>
+            {{usuarioActivo.username}} |  <a class="nav-link" [routerLink]="'/'">Cerrar sesión</a>
         </div>
       </div>
     </div>
