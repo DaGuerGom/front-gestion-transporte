@@ -1,20 +1,20 @@
 <nav class="navbar navbar-expand-lg" ngDefault>
-    <div class="container-fluid">
-      <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon navbar-dark"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="rutaHome" aria-current="page">Inicio</a>
-          </li>
-          <li class="nav-item" *ngIf="usuarioActivo.tipo=='ad'">
-            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/solicitudes'">Solicitudes <span class="px-2 rounded-circle" [ngClass]="{'notificacion':this.router.url!='/solicitudes'}" *ngIf="usuariosPendientes!=0 && this.router.url!='/solicitudes'">{{usuariosPendientes}}</span></a>
-          </li>
-        </ul>
-        <div class="d-flex">
-            {{usuarioActivo.username}} |  <span (click)="cerrarSesion()">Cerrar sesión</span>
-        </div>
-      </div>
+  <div class="container-fluid">
+    <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon navbar-dark"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="rutaHome" aria-current="page">Inicio</a>
+        </li>
+        <li class="nav-item" *ngIf="usuarioActivo.tipo=='ad'">
+          <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/solicitudes'">Solicitudes <span class="px-2 rounded-circle" [ngClass]="{'notificacion':this.router.url!='/solicitudes'}" *ngIf="usuariosPendientes!=0 && this.router.url!='/solicitudes'">{{usuariosPendientes}}</span></a>
+        </li>
+      </ul>
     </div>
-  </nav>
+    <div class="d-flex">
+      {{usuarioActivo.username}} |  <a class="nav-link" [routerLink]="'/'">Cerrar sesión</a>
+    </div>
+  </div>
+</nav>

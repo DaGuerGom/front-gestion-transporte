@@ -14,6 +14,7 @@ import { EnEsperaComponent } from './en-espera/en-espera.component';
 import { RechazadoComponent } from './rechazado/rechazado.component';
 import { HomeAdminComponent } from './home-admin/home-admin.component';
 import { SolicitudesUsuariosComponent } from './solicitudes-usuarios/solicitudes-usuarios.component';
+import { PortadaComponent } from './portada/portada.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SolicitudesUsuariosComponent } from './solicitudes-usuarios/solicitudes
     EnEsperaComponent,
     RechazadoComponent,
     HomeAdminComponent,
-    SolicitudesUsuariosComponent
+    SolicitudesUsuariosComponent,
+    PortadaComponent
   ],
   imports: [
     BrowserModule,
