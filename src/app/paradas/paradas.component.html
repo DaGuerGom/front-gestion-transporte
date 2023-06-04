@@ -1,0 +1,23 @@
+<app-menu></app-menu>
+<div class="container ">
+    <div class="row"><div class="col-12"><h2 class="pt-4 d-flex justify-content-center">Rutas</h2><br></div></div>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Modificar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let parada of paradas">
+            <th scope="row">{{parada.id}}</th>
+            <td>{{parada.nombre}}</td>
+            <td>
+              <button type="button" class="btn btn-dark">Editar</button>
+              <button type="button" class="btn btn-danger">Eliminar</button>
+            </td>            
+          </tr>
+        </tbody>
+      </table>
+</div>

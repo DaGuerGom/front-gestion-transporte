@@ -15,6 +15,7 @@ import { RechazadoComponent } from './rechazado/rechazado.component';
 import { HomeAdminComponent } from './home-admin/home-admin.component';
 import { SolicitudesUsuariosComponent } from './solicitudes-usuarios/solicitudes-usuarios.component';
 import { PortadaComponent } from './portada/portada.component';
+import { ParadasComponent } from './paradas/paradas.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PortadaComponent } from './portada/portada.component';
     RechazadoComponent,
     HomeAdminComponent,
     SolicitudesUsuariosComponent,
-    PortadaComponent
+    PortadaComponent,
+    ParadasComponent
   ],
   imports: [
     BrowserModule,
