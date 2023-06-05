@@ -27,7 +27,7 @@ export class AutobusService {
 
   actualizarAutobus(autobus:Autobus):Observable<Autobus>{
     const url=this.url+"/"+autobus.id
-    return this.http.put<Autobus>(this.url,autobus)
+    return this.http.put<Autobus>(url,autobus)
   }
 
   borrarAutobus(id:number):Observable<Autobus>{

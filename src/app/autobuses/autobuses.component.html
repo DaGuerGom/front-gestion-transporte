@@ -17,7 +17,7 @@
             <td>{{autobus.nombre}}</td>
             <td>{{autobus.capacidad}}</td>
             <td>
-              <button type="button" class="btn btn-dark">Editar</button>
+              <button type="button" class="btn btn-dark" (click)="editarAutobus(autobus)">Editar</button>
               <button type="button" class="btn btn-danger" (click)="eliminarAutobus(autobus.id)">Eliminar</button>
             </td>            
           </tr>
