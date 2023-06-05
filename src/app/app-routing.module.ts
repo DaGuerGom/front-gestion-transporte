@@ -18,6 +18,7 @@ import { ParadasComponent } from './paradas/paradas.component';
 import { ActualizarParadaComponent } from './paradas/actualizar-parada/actualizar-parada.component';
 import { NuevaParadaComponent } from './paradas/nueva-parada/nueva-parada.component';
 import { AutobusesComponent } from './autobuses/autobuses.component';
+import { NuevoAutobusComponent } from './autobuses/nuevo-autobus/nuevo-autobus.component';
 
 
 
@@ -35,7 +36,8 @@ const routes:Routes=[
   {path: "paradasAdmin", component: ParadasComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
   {path: "actualizarParada/:id", component: ActualizarParadaComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
   {path: "nuevaParada", component: NuevaParadaComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
-  {path: "autobuses", component: AutobusesComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]}
+  {path: "autobuses", component: AutobusesComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
+  {path: "nuevoAutobus", component: NuevoAutobusComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]}
 ]
 
 @NgModule({

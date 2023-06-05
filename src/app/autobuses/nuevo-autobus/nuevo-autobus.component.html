@@ -1,0 +1,43 @@
+<app-menu></app-menu>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="pt-4 d-flex justify-content-center">Nuevo autobús</h2>
+    </div>
+  </div>
+
+  <div class="row pt-4 align-items-center">
+    <div class="col-12">
+        <div class="row align-items-center">
+            <div class="col-md-2 col-12">
+                <label for="nombre" class="d-flex label">Nombre:</label>
+            </div>
+            <div class="col-md-10 col-12">
+                <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="nombre">
+            </div>
+        </div>
+    </div>
+    <div class="col-12 pt-4">
+        <div class="row align-items-center">
+            <div class="col-md-2 col-12">
+                <label for="capacidad" class="d-flex label">Capacidad:</label>
+            </div>
+            <div class="col-md-9 col-10">
+                <input type="range" class="custom-range w-100" name="capacidad" id="capacidad" min="1" max="64" step="1" [(ngModel)]="capacidad">
+            </div>
+            <div class="col-md-1 col-2">
+                {{capacidad}}
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <div class="row pt-4">
+    <div class="col-md-3 col-12"></div>
+    <div class="col-md-9 col-12 d-flex justify-content-between flex-column flex-md-row">
+      <button type="button" class="btn btn-dark mb-2 mb-md-0" (click)="crearAutobus()">Crear</button>
+      <button type="button" class="btn btn-danger" [routerLink]="['/paradasAdmin']">Cancelar</button>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Autobus } from '../interfaces/autobus';
 import { AutobusService } from '../services/autobus.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-autobuses',
@@ -9,7 +10,7 @@ import { AutobusService } from '../services/autobus.service';
 })
 export class AutobusesComponent implements OnInit{
   
-  constructor(private service:AutobusService){}
+  constructor(private service:AutobusService,private router:Router){}
 
   autobuses!:Autobus[]
 
@@ -21,5 +22,7 @@ export class AutobusesComponent implements OnInit{
     )
   }
 
-  
+  editarAutobus(autobus:Autobus){
+    this.router.navigate(["/editarAutobus",autobus.id])
+  }
 }

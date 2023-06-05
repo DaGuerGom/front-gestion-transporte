@@ -19,6 +19,7 @@ import { ParadasComponent } from './paradas/paradas.component';
 import { ActualizarParadaComponent } from './paradas/actualizar-parada/actualizar-parada.component';
 import { NuevaParadaComponent } from './paradas/nueva-parada/nueva-parada.component';
 import { AutobusesComponent } from './autobuses/autobuses.component';
+import { NuevoAutobusComponent } from './autobuses/nuevo-autobus/nuevo-autobus.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AutobusesComponent } from './autobuses/autobuses.component';
     ParadasComponent,
     ActualizarParadaComponent,
     NuevaParadaComponent,
-    AutobusesComponent
+    AutobusesComponent,
+    NuevoAutobusComponent
   ],
   imports: [
     BrowserModule,
