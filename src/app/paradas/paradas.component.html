@@ -1,8 +1,8 @@
 <app-menu></app-menu>
 <div class="container ">
-    <div class="row"><div class="col-12"><h2 class="pt-4 d-flex justify-content-center">Rutas</h2><br></div></div>
+    <div class="row"><div class="col-12"><h2 class="pt-4 d-flex justify-content-center">Paradas</h2><br></div></div>
     <table class="table">
-        <thead class="thead-dark">
+        <thead class="thead">
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Nombre</th>
@@ -14,8 +14,8 @@
             <th scope="row">{{parada.id}}</th>
             <td>{{parada.nombre}}</td>
             <td>
-              <button type="button" class="btn btn-dark">Editar</button>
-              <button type="button" class="btn btn-danger">Eliminar</button>
+              <button type="button" class="btn btn-dark" (click)="editarParada(parada.id)">Editar</button>
+              <button type="button" class="btn btn-danger" (click)="borrarParada(parada.id)">Eliminar</button>
             </td>            
           </tr>
         </tbody>

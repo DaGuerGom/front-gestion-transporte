@@ -15,6 +15,7 @@ import { HomeAdminComponent } from './home-admin/home-admin.component';
 import { AdmitidoGuard } from './guards/admitido.guard';
 import { SolicitudesUsuariosComponent } from './solicitudes-usuarios/solicitudes-usuarios.component';
 import { ParadasComponent } from './paradas/paradas.component';
+import { ActualizarParadaComponent } from './paradas/actualizar-parada/actualizar-parada.component';
 
 
 
@@ -29,7 +30,8 @@ const routes:Routes=[
   {path: "home-conductor", component: HomeConductorComponent,canActivate:[AuthGuard,AdmitidoGuard,ConductorGuard]},
   {path: "home-admin", component: HomeAdminComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
   {path: "solicitudes", component: SolicitudesUsuariosComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
-  {path: "paradasAdmin", component: ParadasComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]}
+  {path: "paradasAdmin", component: ParadasComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
+  {path: "actualizarParada/:id", component: ActualizarParadaComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]}
 ]
 
 @NgModule({

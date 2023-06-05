@@ -16,6 +16,7 @@ import { HomeAdminComponent } from './home-admin/home-admin.component';
 import { SolicitudesUsuariosComponent } from './solicitudes-usuarios/solicitudes-usuarios.component';
 import { PortadaComponent } from './portada/portada.component';
 import { ParadasComponent } from './paradas/paradas.component';
+import { ActualizarParadaComponent } from './paradas/actualizar-parada/actualizar-parada.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ParadasComponent } from './paradas/paradas.component';
     HomeAdminComponent,
     SolicitudesUsuariosComponent,
     PortadaComponent,
-    ParadasComponent
+    ParadasComponent,
+    ActualizarParadaComponent
   ],
   imports: [
     BrowserModule,
