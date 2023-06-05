@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Autobus } from '../interfaces/autobus';
 import { AutobusService } from '../services/autobus.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-autobuses',
@@ -24,5 +25,30 @@ export class AutobusesComponent implements OnInit{
 
   editarAutobus(autobus:Autobus){
     this.router.navigate(["/editarAutobus",autobus.id])
+  }
+
+  eliminarAutobus(id:number):void{
+    Swal.fire({
+      title: '¿Seguro que quieres borrar el autobús?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then(resp=>{
+      if (resp.isConfirmed) {
+        this.service.borrarAutobus(id).subscribe(
+          resp=>{
+            Swal.fire({
+              confirmButtonColor: "#ff6d43",
+              title: 'Autobús eliminado con éxito',
+              icon: 'success'
+            })
+            this.ngOnInit()
+          }
+        )
+      }
+    })
   }
 }
