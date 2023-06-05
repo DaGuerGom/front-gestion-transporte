@@ -33,7 +33,16 @@ export class ParadasComponent implements OnInit{
       cancelButtonText: 'No'
     }).then(resp=>{
       if (resp.isConfirmed) {
-        
+        this.service.borrarParada(id).subscribe(
+          resp=>{
+            Swal.fire({
+              confirmButtonColor: "#ff6d43",
+              title: 'Parada eliminada con éxito',
+              icon: 'success'
+            })
+            this.ngOnInit()
+          }
+        )
       }
     })
   }

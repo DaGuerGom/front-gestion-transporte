@@ -24,4 +24,9 @@ export class ParadaService {
     let url="http://localhost:8080/api/v1/paradas/"+parada.id
     return this.http.put<Parada>(url,parada)
   }
+
+  borrarParada(id:number):Observable<any>{
+    let url="http://localhost:8080/api/v1/paradas/"+id
+    return this.http.delete(url)
+  }
 }
