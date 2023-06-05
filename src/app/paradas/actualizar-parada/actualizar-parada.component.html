@@ -1,0 +1,26 @@
+<app-menu></app-menu>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="pt-4 d-flex justify-content-center">Actualizar parada</h2>
+    </div>
+  </div>
+
+  <div class="row pt-4 align-items-center">
+    <div class="col-md-3 col-12">
+      <label for="nombre" class="d-flex label">Nombre:</label>
+    </div>
+    <div class="col-md-9 col-12">
+      <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="parada.nombre">
+    </div>
+  </div>
+  
+  <div class="row pt-4">
+    <div class="col-md-3 col-12"></div>
+    <div class="col-md-9 col-12 d-flex justify-content-md-between flex-column flex-md-row">
+      <button type="button" class="btn btn-dark mb-2 mb-md-0" (click)="editar()">Editar</button>
+      <button type="button" class="btn btn-danger" [routerLink]="['/paradasAdmin']">Cancelar</button>
+    </div>
+  </div>
+</div>

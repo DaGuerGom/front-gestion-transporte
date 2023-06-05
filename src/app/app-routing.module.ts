@@ -14,9 +14,13 @@ import { AdminGuard } from './guards/admin.guard';
 import { HomeAdminComponent } from './home-admin/home-admin.component';
 import { AdmitidoGuard } from './guards/admitido.guard';
 import { SolicitudesUsuariosComponent } from './solicitudes-usuarios/solicitudes-usuarios.component';
+import { ParadasComponent } from './paradas/paradas.component';
+import { ActualizarParadaComponent } from './paradas/actualizar-parada/actualizar-parada.component';
+import { NuevaParadaComponent } from './nueva-parada/nueva-parada.component';
 
 
-//Guards: Son necesarias cumplir sus condiciones para acceder a la ruta. En caso de que se intente conectar, se cerrará la sesión.
+
+//Guards: Son necesarias cumplir sus condiciones para acceder a la ruta. En caso de que se intente acceder mediante url sin cumplir las condiciones, se cerrará la sesión.
 
 const routes:Routes=[
   {path: "", component: InicioSesionComponent},
@@ -26,7 +30,10 @@ const routes:Routes=[
   {path: "home-alumno", component: HomeAlumnoComponent,canActivate:[AuthGuard,AdmitidoGuard,AlumnoGuard]},
   {path: "home-conductor", component: HomeConductorComponent,canActivate:[AuthGuard,AdmitidoGuard,ConductorGuard]},
   {path: "home-admin", component: HomeAdminComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
-  {path: "solicitudes", component: SolicitudesUsuariosComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]}
+  {path: "solicitudes", component: SolicitudesUsuariosComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
+  {path: "paradasAdmin", component: ParadasComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
+  {path: "actualizarParada/:id", component: ActualizarParadaComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
+  {path: "nuevaParada", component: NuevaParadaComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]}
 ]
 
 @NgModule({

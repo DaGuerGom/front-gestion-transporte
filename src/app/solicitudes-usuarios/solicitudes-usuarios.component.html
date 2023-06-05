@@ -1,5 +1,6 @@
 <app-menu></app-menu>
 <div class="container">
+    <h2 *ngIf="listaUsuarios.length==0" class="d-flex justify-content-center pt-4">Actualmente no tienes ninguna solicitud pendiente.</h2>
     <div class="row d-flex justify-content-center">
         <div class="col-md-5 col-12 rounded border border-dark mt-4 margen" *ngFor="let usuario of listaUsuarios">
             <p class="h4 pt-2">{{getTipo(usuario)}}</p>
