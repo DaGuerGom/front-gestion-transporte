@@ -8,30 +8,30 @@ import { Parada, ParadaSubmit } from '../interfaces/parada';
 })
 export class ParadaService {
 
+  url:string="http://localhost:8080/api/v1/paradas"
+
   constructor(private http:HttpClient) { }
 
   obtenerParadas():Observable<Parada[]>{
-    let url="http://localhost:8080/api/v1/paradas"
-    return this.http.get<Parada[]>(url)
+    return this.http.get<Parada[]>(this.url)
   }
 
   obtenerParadaPorId(id:number):Observable<Parada>{
-    let url="http://localhost:8080/api/v1/paradas/"+id
+    let url=this.url+"/"+id
     return this.http.get<Parada>(url)
   }
 
   crearParada(parada:ParadaSubmit):Observable<Parada>{
-    let url="http://localhost:8080/api/v1/paradas"
-    return this.http.post<Parada>(url,parada)
+    return this.http.post<Parada>(this.url,parada)
   }
 
   actualizarParada(parada:Parada):Observable<Parada>{
-    let url="http://localhost:8080/api/v1/paradas/"+parada.id
+    let url=this.url+"/"+parada.id
     return this.http.put<Parada>(url,parada)
   }
 
   borrarParada(id:number):Observable<any>{
-    let url="http://localhost:8080/api/v1/paradas/"+id
+    let url=this.url+"/"+id
     return this.http.delete(url)
   }
 }

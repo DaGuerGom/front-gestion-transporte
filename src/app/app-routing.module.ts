@@ -16,7 +16,10 @@ import { AdmitidoGuard } from './guards/admitido.guard';
 import { SolicitudesUsuariosComponent } from './solicitudes-usuarios/solicitudes-usuarios.component';
 import { ParadasComponent } from './paradas/paradas.component';
 import { ActualizarParadaComponent } from './paradas/actualizar-parada/actualizar-parada.component';
-import { NuevaParadaComponent } from './nueva-parada/nueva-parada.component';
+import { NuevaParadaComponent } from './paradas/nueva-parada/nueva-parada.component';
+import { AutobusesComponent } from './autobuses/autobuses.component';
+import { NuevoAutobusComponent } from './autobuses/nuevo-autobus/nuevo-autobus.component';
+import { EditarAutobusComponent } from './autobuses/editar-autobus/editar-autobus.component';
 
 
 
@@ -33,7 +36,10 @@ const routes:Routes=[
   {path: "solicitudes", component: SolicitudesUsuariosComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
   {path: "paradasAdmin", component: ParadasComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
   {path: "actualizarParada/:id", component: ActualizarParadaComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
-  {path: "nuevaParada", component: NuevaParadaComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]}
+  {path: "nuevaParada", component: NuevaParadaComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
+  {path: "autobuses", component: AutobusesComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
+  {path: "nuevoAutobus", component: NuevoAutobusComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
+  {path: "editarAutobus/:id", component: EditarAutobusComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]}
 ]
 
 @NgModule({

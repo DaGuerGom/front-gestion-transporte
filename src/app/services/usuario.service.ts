@@ -9,25 +9,26 @@ import { Usuario, UsuarioRegistro } from '../interfaces/usuario';
 })
 export class UsuarioService {
 
+  url:string="http://localhost:8080/api/v1/users"
+
   constructor(private authService:AuthService, private http:HttpClient) { }
 
   obtenerUsuarioActivo(): Observable<any> {
-    let url = "http://localhost:8080/api/v1/users/" + this.authService.username
+    let url = this.url+"/" + this.authService.username
     return this.http.get<any>(url, {observe: 'response' })
 }
 
   registrarUsuario(usuario:UsuarioRegistro):Observable<any>{
-    let url="http://localhost:8080/api/v1/users"
-    return this.http.post<any>(url,usuario)
+    return this.http.post<any>(this.url,usuario)
   }
 
   obtenerUsuariosPendientes():Observable<any>{
-    let url = "http://localhost:8080/api/v1/users/en-espera"
+    let url = this.url+"/en-espera"
     return this.http.get<any>(url, {observe: 'response' })
   }
 
   actualizarUsuario(usuario:Usuario):Observable<any>{
-    let url="http://localhost:8080/api/v1/users/"+usuario.username
+    let url=this.url+"/"+usuario.username
     return this.http.put<any>(url,usuario)
   }
 }

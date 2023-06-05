@@ -1,27 +1,27 @@
 import { Component } from '@angular/core';
-import { ParadaService } from '../services/parada.service';
 import { Router } from '@angular/router';
+import { AutobusSubmit } from 'src/app/interfaces/autobus';
+import { AutobusService } from 'src/app/services/autobus.service';
 import Swal from 'sweetalert2';
-import { ParadaSubmit } from '../interfaces/parada';
 
 @Component({
-  selector: 'app-nueva-parada',
-  templateUrl: './nueva-parada.component.html',
-  styleUrls: ['./nueva-parada.component.css']
+  selector: 'app-nuevo-autobus',
+  templateUrl: './nuevo-autobus.component.html',
+  styleUrls: ['./nuevo-autobus.component.css']
 })
-export class NuevaParadaComponent {
-  nombre:string=""
+export class NuevoAutobusComponent {
+  constructor(private router:Router,private service:AutobusService){}
+  nombre:string="";
+  capacidad:number=32;
 
-  constructor(private service:ParadaService,private router:Router){}
-
-  crearParada():void{
+  crearAutobus():void{
     if(this.nombre==""){
       document.getElementsByName("nombre")[0].classList.add("is-invalid")
     }
     else{
       document.getElementsByName("nombre")[0].classList.remove("is-invalid")
       Swal.fire({
-        title: '¿Seguro que quieres crear la parada?',
+        title: '¿Seguro que quieres crear el autobús?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -30,18 +30,18 @@ export class NuevaParadaComponent {
         cancelButtonText: 'No'
       }).then(resp=>{
         if (resp.isConfirmed) {
-          let parada:ParadaSubmit={
+          let autobus:AutobusSubmit={
             nombre:this.nombre,
-            rutas:[],
-            usuarios:[]
+            capacidad:this.capacidad,
+            rutas:[]
           }
-          this.service.crearParada(parada).subscribe(
+          this.service.guardarAutobus(autobus).subscribe(
             resp=>{
               {Swal.fire(
                 '¡Correcto!',
-                'La parada se ha creado con éxito',
+                'El autobús se ha creado con éxito',
                 'success')
-                this.router.navigate(["/paradasAdmin"])
+                this.router.navigate(["/autobuses"])
               }
             }
           )
@@ -49,5 +49,5 @@ export class NuevaParadaComponent {
       })
     }
       
-    }
+  }
 }

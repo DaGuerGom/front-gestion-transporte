@@ -15,11 +15,14 @@
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/paradasAdmin'">Paradas</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/autobuses'">Autobuses</a>
+        </li>
       </div>
       </ul>
     </div>
     <div class="d-flex">
-      {{usuarioActivo.username}} |  <a class="nav-link" [routerLink]="'/'">Cerrar sesión</a>
+      {{usuarioActivo.username}} | &nbsp;  <a class="nav-link" [routerLink]="'/'">Cerrar sesión</a>
     </div>
   </div>
 </nav>
