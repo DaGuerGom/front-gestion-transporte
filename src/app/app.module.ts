@@ -17,6 +17,7 @@ import { SolicitudesUsuariosComponent } from './solicitudes-usuarios/solicitudes
 import { PortadaComponent } from './portada/portada.component';
 import { ParadasComponent } from './paradas/paradas.component';
 import { ActualizarParadaComponent } from './paradas/actualizar-parada/actualizar-parada.component';
+import { NuevaParadaComponent } from './nueva-parada/nueva-parada.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ActualizarParadaComponent } from './paradas/actualizar-parada/actualiza
     SolicitudesUsuariosComponent,
     PortadaComponent,
     ParadasComponent,
-    ActualizarParadaComponent
+    ActualizarParadaComponent,
+    NuevaParadaComponent
   ],
   imports: [
     BrowserModule,

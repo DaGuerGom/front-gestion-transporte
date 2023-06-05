@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Parada } from '../interfaces/parada';
+import { Parada, ParadaSubmit } from '../interfaces/parada';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,11 @@ export class ParadaService {
   obtenerParadaPorId(id:number):Observable<Parada>{
     let url="http://localhost:8080/api/v1/paradas/"+id
     return this.http.get<Parada>(url)
+  }
+
+  crearParada(parada:ParadaSubmit):Observable<Parada>{
+    let url="http://localhost:8080/api/v1/paradas"
+    return this.http.post<Parada>(url,parada)
   }
 
   actualizarParada(parada:Parada):Observable<Parada>{

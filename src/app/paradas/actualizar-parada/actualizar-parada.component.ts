@@ -23,32 +23,35 @@ export class ActualizarParadaComponent implements OnInit{
     )
   }
 
-  cancelar():void{
-    this.router.navigate(["/paradasAdmin"])
-  }
-
   editar():void{
-    Swal.fire({
-      title: '¿Seguro que quieres editar la parada?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí',
-      cancelButtonText: 'No'
-    }).then(resp=>{
-      if (resp.isConfirmed) {
-        this.service.actualizarParada(this.parada).subscribe(
-          resp=>{
-            {Swal.fire(
-              '¡Correcto!',
-              'La parada se ha actualizado con éxito',
-              'success')
-              this.router.navigate(["/paradasAdmin"])
+    if(this.parada.nombre==""){
+      document.getElementsByName("nombre")[0].classList.add("is-invalid")
+    }
+    else{
+      document.getElementsByName("nombre")[0].classList.remove("is-invalid")
+      Swal.fire({
+        title: '¿Seguro que quieres editar la parada?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+      }).then(resp=>{
+        if (resp.isConfirmed) {
+          this.service.actualizarParada(this.parada).subscribe(
+            resp=>{
+              {Swal.fire(
+                '¡Correcto!',
+                'La parada se ha actualizado con éxito',
+                'success')
+                this.router.navigate(["/paradasAdmin"])
+              }
             }
-          }
-        )
-      }
-    })
+          )
+        }
+      })
+    }
+    
   }
 }
