@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ParadaService } from '../services/parada.service';
+import { ParadaService } from '../../services/parada.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { ParadaSubmit } from '../interfaces/parada';
+import { ParadaSubmit } from '../../interfaces/parada';
 
 @Component({
   selector: 'app-nueva-parada',
