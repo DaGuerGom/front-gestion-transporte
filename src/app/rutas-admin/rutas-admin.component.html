@@ -1,0 +1,32 @@
+<app-menu></app-menu>
+<div class="container ">
+    <div class="row"><div class="col-12"><h2 class="pt-4 d-flex justify-content-center">Rutas</h2><br></div></div>
+    <button type="button" class="btn btn-dark mb-2">Crear</button>
+    <table class="table">
+        <thead class="thead">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Hora de salida</th>
+            <th scope="col">Hora de llegada</th>
+            <th scope="col">Paradas</th>
+            <th scope="col">Autobuses</th>
+            <th scope="col">Modificar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ruta of rutas">
+            <th scope="row">{{ruta.id}}</th>
+            <td>{{ruta.nombre}}</td>
+            <td>{{ruta.horaSalida}}</td>
+            <td>{{ruta.horaLlegada}}</td>
+            <td><table><tr *ngFor="let parada of ruta.nombresParadas">{{parada}}</tr></table></td>
+            <td><table><tr *ngFor="let autobus of ruta.nombresAutobuses">{{autobus}}</tr></table></td>
+            <td>
+              <button type="button" class="btn btn-dark">Editar</button>
+              <button type="button" class="btn btn-danger">Eliminar</button>
+            </td>            
+          </tr>
+        </tbody>
+      </table>
+</div>
