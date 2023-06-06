@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RutaService } from '../services/ruta.service';
 import { Ruta } from '../interfaces/ruta';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-rutas-admin',
@@ -21,4 +22,28 @@ export class RutasAdminComponent implements OnInit{
     )
   }
 
+  borrarRuta(id:number){
+    Swal.fire({
+      title: '¿Seguro que quieres borrar la ruta?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then(resp=>{
+      if (resp.isConfirmed) {
+        this.service.borrarRuta(id).subscribe(
+          resp=>{
+            Swal.fire({
+              confirmButtonColor: "#ff6d43",
+              title: 'Ruta eliminada con éxito',
+              icon: 'success'
+            })
+            this.ngOnInit()
+          }
+        )
+      }
+    })
+  }
 }

@@ -24,7 +24,7 @@
             <td><table><tr *ngFor="let autobus of ruta.nombresAutobuses">{{autobus}}</tr></table></td>
             <td>
               <button type="button" class="btn btn-dark">Editar</button>
-              <button type="button" class="btn btn-danger">Eliminar</button>
+              <button type="button" class="btn btn-danger" (click)="borrarRuta(ruta.id)">Eliminar</button>
             </td>            
           </tr>
         </tbody>
