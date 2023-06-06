@@ -21,6 +21,7 @@ import { AutobusesComponent } from './autobuses/autobuses.component';
 import { NuevoAutobusComponent } from './autobuses/nuevo-autobus/nuevo-autobus.component';
 import { EditarAutobusComponent } from './autobuses/editar-autobus/editar-autobus.component';
 import { RutasAdminComponent } from './rutas-admin/rutas-admin.component';
+import { NuevaRutaComponent } from './rutas-admin/nueva-ruta/nueva-ruta.component';
 
 
 
@@ -41,7 +42,8 @@ const routes:Routes=[
   {path: "autobuses", component: AutobusesComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
   {path: "nuevoAutobus", component: NuevoAutobusComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
   {path: "editarAutobus/:id", component: EditarAutobusComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
-  {path: "rutasAdmin", component: RutasAdminComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]}
+  {path: "rutasAdmin", component: RutasAdminComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
+  {path: "nuevaRuta", component: NuevaRutaComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]}
 ]
 
 @NgModule({
