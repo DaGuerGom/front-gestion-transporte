@@ -26,6 +26,8 @@ import { EditarRutaComponent } from './rutas-admin/editar-ruta/editar-ruta.compo
 import { RutasAlumnoComponent } from './rutas-alumno/rutas-alumno.component';
 import { ApuntarRutaComponent } from './rutas-alumno/apuntar-ruta/apuntar-ruta.component';
 import { MisRutasComponent } from './mis-rutas/mis-rutas.component';
+import { RutasConductorComponent } from './rutas-conductor/rutas-conductor.component';
+import { AsignacionesRutaComponent } from './rutas-conductor/asignaciones-ruta/asignaciones-ruta.component';
 
 
 
@@ -51,7 +53,9 @@ const routes:Routes=[
   {path: "editarRuta/:id", component: EditarRutaComponent,canActivate:[AuthGuard,AdmitidoGuard,AdminGuard]},
   {path: "rutas", component: RutasAlumnoComponent,canActivate:[AuthGuard,AdmitidoGuard,AlumnoGuard]},
   {path: "asignarRutas/:id", component: ApuntarRutaComponent,canActivate:[AuthGuard,AdmitidoGuard,AlumnoGuard]},
-  {path: "misRutas", component: MisRutasComponent,canActivate:[AuthGuard,AdmitidoGuard,AlumnoGuard]}
+  {path: "misRutas", component: MisRutasComponent,canActivate:[AuthGuard,AdmitidoGuard,AlumnoGuard]},
+  {path: "rutas/:username", component: RutasConductorComponent,canActivate:[AuthGuard,AdmitidoGuard,ConductorGuard]},
+  {path: "asignacionesDeRuta/:id", component: AsignacionesRutaComponent,canActivate:[AuthGuard,AdmitidoGuard,ConductorGuard]}
 ]
 
 @NgModule({

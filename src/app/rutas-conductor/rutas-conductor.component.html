@@ -1,0 +1,23 @@
+<app-menu></app-menu>
+<div class="container">
+    <div class="row" *ngIf="rutas.length==0">
+        <div class="col-12">
+          <h2 class="pt-4 d-flex justify-content-center">Actualmente no tienes ninguna ruta asignada.</h2>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-5 col-12 rounded border border-dark mt-4 margen" *ngFor="let ruta of rutas">
+          <p class="h4 pt-2">{{ruta.nombre}}</p>
+          <div class="row">
+            <div class="col-12">
+              <p><span class="pt-3 fw-bold"> Hora de salida:</span> {{ruta.horaSalida}}</p>
+              <p><span class="pt-3 fw-bold">Hora de llegada:</span> {{ruta.horaLlegada}}</p>
+            </div>
+          </div>
+          <div class="row d-flex">
+            <div class="col-md-6 col-12 py-3"><a [routerLink]="['/asignacionesDeRuta',ruta.id]"><button type="button" class="justify-content-center btn btn-dark">Ver paradas de usuarios</button></a></div>
+        </div>
+        </div>
+    </div>
+    
+</div>

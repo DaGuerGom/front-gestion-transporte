@@ -1,0 +1,30 @@
+<app-menu></app-menu>
+<div class="container">
+<div class="row" *ngIf="asignaciones.length==0">
+    <div class="col-12">
+      <h2 class="pt-4 d-flex justify-content-center">No hay ningún alumno asignado a esta ruta</h2>
+    </div>
+</div>
+<div *ngIf="asignaciones.length!=0">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="pt-4 d-flex justify-content-center">Paradas de alumnos</h2>
+        </div>
+    </div>
+    <table class="table">
+        <thead class="thead">
+          <tr>
+            <th scope="col">Parada</th>
+            <th scope="col">Alumnos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let parada of paradasAsignadas">
+            <td scope="row">{{parada}}</td>
+            <td><table><tr *ngFor="let usuario of obtenerUsuariosDeParada(parada)">{{usuario}}</tr></table></td>           
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+</div>

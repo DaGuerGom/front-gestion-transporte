@@ -16,6 +16,11 @@
             <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/misRutas'">Mis Rutas</a>
           </li>
         </div>
+        <div *ngIf="usuarioActivo.tipo=='c'" class="d-lg-flex">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="['/rutas',usuarioActivo.username]">Rutas asignadas</a>
+          </li>
+        </div>
         <div *ngIf="usuarioActivo.tipo=='ad'" class="d-lg-flex">
           <li class="nav-item">
             <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/solicitudes'">Solicitudes <span class="px-2 rounded-circle" [ngClass]="{'notificacion':this.router.url!='/solicitudes'}" *ngIf="usuariosPendientes!=0 && this.router.url!='/solicitudes'">{{usuariosPendientes}}</span></a>
