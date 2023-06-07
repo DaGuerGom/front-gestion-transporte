@@ -24,6 +24,7 @@ import { EditarAutobusComponent } from './autobuses/editar-autobus/editar-autobu
 import { RutasAdminComponent } from './rutas-admin/rutas-admin.component';
 import { NuevaRutaComponent } from './rutas-admin/nueva-ruta/nueva-ruta.component';
 import { EditarRutaComponent } from './rutas-admin/editar-ruta/editar-ruta.component';
+import { RutasAlumnoComponent } from './rutas-alumno/rutas-alumno.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { EditarRutaComponent } from './rutas-admin/editar-ruta/editar-ruta.compo
     EditarAutobusComponent,
     RutasAdminComponent,
     NuevaRutaComponent,
-    EditarRutaComponent
+    EditarRutaComponent,
+    RutasAlumnoComponent
   ],
   imports: [
     BrowserModule,
