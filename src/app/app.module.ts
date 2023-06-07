@@ -25,6 +25,7 @@ import { RutasAdminComponent } from './rutas-admin/rutas-admin.component';
 import { NuevaRutaComponent } from './rutas-admin/nueva-ruta/nueva-ruta.component';
 import { EditarRutaComponent } from './rutas-admin/editar-ruta/editar-ruta.component';
 import { RutasAlumnoComponent } from './rutas-alumno/rutas-alumno.component';
+import { ApuntarRutaComponent } from './rutas-alumno/apuntar-ruta/apuntar-ruta.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { RutasAlumnoComponent } from './rutas-alumno/rutas-alumno.component';
     RutasAdminComponent,
     NuevaRutaComponent,
     EditarRutaComponent,
-    RutasAlumnoComponent
+    RutasAlumnoComponent,
+    ApuntarRutaComponent
   ],
   imports: [
     BrowserModule,

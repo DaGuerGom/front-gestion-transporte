@@ -20,7 +20,9 @@ export class ParadaService {
     let url=this.url+"/"+id
     return this.http.get<Parada>(url)
   }
-
+  obtenerParadasDeRuta(idRuta:number):Observable<Parada[]>{
+    return this.http.get<Parada[]>("http://localhost:8080/api/v1/paradasDeRuta/"+idRuta)
+  }
   crearParada(parada:ParadaSubmit):Observable<Parada>{
     return this.http.post<Parada>(this.url,parada)
   }

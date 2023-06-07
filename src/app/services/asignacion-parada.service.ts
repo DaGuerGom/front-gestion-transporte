@@ -1,0 +1,21 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AsignacionParadaService {
+
+  url:string="http://localhost:8080/api/v1/asignacionesParadas"
+
+  constructor(private http:HttpClient) { }
+
+  obtenerAsignaciones():Observable<any[]>{
+    return this.http.get<any[]>(this.url)
+  }
+
+  asignar(body:any):Observable<any>{
+    return this.http.post<any>(this.url,body)
+  }
+}

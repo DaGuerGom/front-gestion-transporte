@@ -20,6 +20,6 @@ export class RutasAlumnoComponent implements OnInit{
   }
 
   accederAltaRuta(id:number):void{
-    this.router.navigate(["rutas",id])
+    this.router.navigate(["asignarRutas",id])
   }
 }

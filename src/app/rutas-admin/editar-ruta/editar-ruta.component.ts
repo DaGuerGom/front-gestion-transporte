@@ -44,13 +44,15 @@ export class EditarRutaComponent implements OnInit {
         confirmButtonText: 'Sí',
         cancelButtonText: 'No'
       }).then(resp=>{
-        this.rService.actualizarRuta(this.ruta).subscribe(resp=>{
+        if(resp.isConfirmed){
+          this.rService.actualizarRuta(this.ruta).subscribe(resp=>{
           Swal.fire(
             '¡Correcto!',
             'La ruta ha sido actualizada con éxito',
             'success')
             this.router.navigate(['/rutasAdmin'])
         })
+        }
       })
     }
   }
