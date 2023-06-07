@@ -1,0 +1,21 @@
+<app-menu></app-menu>
+<div class="container">
+    <div class="row" *ngIf="asignaciones.length==0">
+        <div class="col-12">
+          <h2 class="pt-4 d-flex justify-content-center">Actualmente no tienes ninguna ruta asignada.</h2>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-5 col-12 rounded border border-dark mt-4 margen" *ngFor="let asignacion of asignaciones">
+          <p class="h4 pt-2">{{asignacion.asignacionBus.ruta.nombre}}</p>
+          <div class="row">
+            <div class="col-12">
+              <p><span class="pt-3 fw-bold"> Hora de salida:</span> {{asignacion.asignacionBus.ruta.horaSalida}}</p>
+              <p><span class="pt-3 fw-bold">Hora de llegada:</span> {{asignacion.asignacionBus.ruta.horaLlegada}}</p>
+              <p><span class="pt-3 fw-bold">Tu parada:</span> {{asignacion.parada}}</p>
+              <p><span class="pt-3 fw-bold">Autobús asignado:</span> {{asignacion.asignacionBus.autobus.nombre}}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
