@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AsignacionBusService } from '../services/asignacion-bus.service';
+import { Ruta } from '../interfaces/ruta';
+import { RutaService } from '../services/ruta.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rutas-alumno',
@@ -7,11 +9,17 @@ import { AsignacionBusService } from '../services/asignacion-bus.service';
   styleUrls: ['./rutas-alumno.component.css']
 })
 export class RutasAlumnoComponent implements OnInit{
-  asignacionDisponible:any[]=[]
+  rutas!:Ruta[];
 
-  constructor(private service:AsignacionBusService){}
+  constructor(private service:RutaService,private router:Router){}
   
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.service.obtenerRutas().subscribe(resp=>{
+      this.rutas=resp
+    })
+  }
+
+  accederAltaRuta(id:number):void{
+    this.router.navigate(["rutas",id])
   }
 }
