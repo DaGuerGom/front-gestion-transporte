@@ -15,8 +15,7 @@ export class RutasConductorComponent implements OnInit{
   constructor(private service:RutaService,private aRoute:ActivatedRoute){}
 
   ngOnInit(): void {
-    this.service.obtenerRutasPorConductor(this.aRoute.snapshot.params["username"]).subscribe(resp=>{this.rutas=resp
-    console.log(resp)})
+    this.service.obtenerRutasPorConductor(this.aRoute.snapshot.params["username"]).subscribe(resp=>{this.rutas=resp})
   }
 
 

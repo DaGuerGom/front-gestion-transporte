@@ -28,6 +28,7 @@ import { RutasAlumnoComponent } from './rutas-alumno/rutas-alumno.component';
 import { ApuntarRutaComponent } from './rutas-alumno/apuntar-ruta/apuntar-ruta.component';
 import { MisRutasComponent } from './mis-rutas/mis-rutas.component';
 import { RutasConductorComponent } from './rutas-conductor/rutas-conductor.component';
+import { AsignacionesRutaComponent } from './rutas-conductor/asignaciones-ruta/asignaciones-ruta.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { RutasConductorComponent } from './rutas-conductor/rutas-conductor.compo
     RutasAlumnoComponent,
     ApuntarRutaComponent,
     MisRutasComponent,
-    RutasConductorComponent
+    RutasConductorComponent,
+    AsignacionesRutaComponent
   ],
   imports: [
     BrowserModule,
