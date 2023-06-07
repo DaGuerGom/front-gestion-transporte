@@ -16,6 +16,10 @@ export class AutobusService {
     return this.http.get<Autobus[]>(this.url)
   }
 
+  obtenerAutobusesLibres():Observable<Autobus[]>{
+    return this.http.get<Autobus[]>(this.url+"Libre")
+  }
+
   obtenerAutobusPorId(id:number):Observable<Autobus>{
     const url=this.url+"/"+id
     return this.http.get<Autobus>(url)

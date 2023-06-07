@@ -1,0 +1,61 @@
+<app-menu></app-menu>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+          <h2 class="pt-4 d-flex justify-content-center">Nueva Ruta</h2>
+        </div>
+    </div>
+    <div class="row pt-4 align-items-center">
+        <div class="col-12">
+            <div class="row align-items-center">
+                <div class="col-md-2 col-12">
+                    <label for="nombre" class="d-flex label">Nombre:</label>
+                </div>
+                <div class="col-md-10 col-12">
+                    <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="nombre">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 pt-4">
+            <div class="row align-items-center">
+                <div class="col-md-2 col-12">
+                    <label for="nombre" class="d-flex label">Hora de salida:</label>
+                </div>
+                <div class="col-md-4 col-12">
+                    <input type="time" class="form-control" name="horaSalida" id="horaSalida" [(ngModel)]="horaSalida">
+                </div>
+                <div class="col-md-2 col-12 pt-4 pt-md-0">
+                    <label for="nombre" class="d-flex label" >Hora de llegada:</label>
+                </div>
+                <div class="col-md-4 col-12">
+                    <input type="time" class="form-control" name="horaLlegada" id="horaLlegada" [(ngModel)]="horaLlegada" >
+                </div>
+            </div>
+            <div class="row align-items-center pt-4">
+                <div class="col-md-2 col-12">
+                    Paradas:
+                </div>
+                <div class="col-md-4 col-12">
+                    <select class="form-select" multiple aria-label="multiple select example" [(ngModel)]="idParadas" name="paradas">
+                        <option *ngFor="let parada of paradas" value={{parada.id}}>{{parada.nombre}}</option>
+                    </select>
+                </div>
+                <div class="col-md-2 col-12">
+                    Autobuses:
+                </div>
+                <div class="col-md-4 col-12">
+                    <select class="form-select" multiple aria-label="multiple select example" [(ngModel)]="idBuses" name="buses">
+                        <option *ngFor="let autobus of autobusesLibres" value={{autobus.id}}>{{autobus.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-4">
+    <div class="col-md-3 col-12"></div>
+    <div class="col-md-9 col-12 d-flex justify-content-between flex-column flex-md-row">
+      <button type="button" class="btn btn-dark mb-2 mb-md-0" (click)="crearRuta()">Crear</button>
+      <button type="button" class="btn btn-danger" [routerLink]="['/rutasAdmin']">Cancelar</button>
+    </div>
+  </div>
+</div>
