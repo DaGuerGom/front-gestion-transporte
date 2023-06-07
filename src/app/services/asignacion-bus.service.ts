@@ -14,4 +14,8 @@ export class AsignacionBusService {
   obtenerAsignaciones():Observable<any[]>{
     return this.http.get<any[]>(this.url)
   }
+
+  asignar(body:any):Observable<any>{
+    return this.http.post<any>(this.url,body)
+  }
 }
