@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" ngDefault>
+<nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon navbar-dark"></span>
@@ -8,20 +8,20 @@
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="rutaHome" aria-current="page">Inicio</a>
         </li>
-        <div *ngIf="usuarioActivo.tipo=='ad'" class="d-flex">
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/solicitudes'">Solicitudes <span class="px-2 rounded-circle" [ngClass]="{'notificacion':this.router.url!='/solicitudes'}" *ngIf="usuariosPendientes!=0 && this.router.url!='/solicitudes'">{{usuariosPendientes}}</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/paradasAdmin'">Paradas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/autobuses'">Autobuses</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/rutasAdmin'">Rutas</a>
-        </li>
-      </div>
+        <div *ngIf="usuarioActivo.tipo=='ad'" class="d-lg-flex">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/solicitudes'">Solicitudes <span class="px-2 rounded-circle" [ngClass]="{'notificacion':this.router.url!='/solicitudes'}" *ngIf="usuariosPendientes!=0 && this.router.url!='/solicitudes'">{{usuariosPendientes}}</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/paradasAdmin'">Paradas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/autobuses'">Autobuses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/rutasAdmin'">Rutas</a>
+          </li>
+        </div>
       </ul>
     </div>
     <div class="d-flex">

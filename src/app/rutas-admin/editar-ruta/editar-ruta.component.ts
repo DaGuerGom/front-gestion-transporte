@@ -1,29 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Autobus } from 'src/app/interfaces/autobus';
 import { Parada } from 'src/app/interfaces/parada';
-import { Ruta, RutaSubmit } from 'src/app/interfaces/ruta';
+import { Ruta } from 'src/app/interfaces/ruta';
 import { AutobusService } from 'src/app/services/autobus.service';
 import { ParadaService } from 'src/app/services/parada.service';
 import { RutaService } from 'src/app/services/ruta.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-nueva-ruta',
-  templateUrl: './nueva-ruta.component.html',
-  styleUrls: ['./nueva-ruta.component.css']
+  selector: 'app-editar-ruta',
+  templateUrl: './editar-ruta.component.html',
+  styleUrls: ['./editar-ruta.component.css']
 })
-export class NuevaRutaComponent implements OnInit{
-  nombre!:string;
-  horaSalida!:string;
-  horaLlegada!:string;
+export class EditarRutaComponent implements OnInit {
+  ruta!:Ruta
   autobusesLibres!:Autobus[]
   paradas!:Parada[]
-  idParadas!:number[]
-  idBuses!:number[]
-
-  constructor(private router:Router, private rService:RutaService, private pService:ParadaService,private aService:AutobusService){}
-
+  constructor(private router:Router, private rService:RutaService, private pService:ParadaService,private aService:AutobusService, private aRoute:ActivatedRoute){}
   ngOnInit(): void {
     this.aService.obtenerAutobusesLibres().subscribe(
       resp=>{
@@ -35,12 +29,14 @@ export class NuevaRutaComponent implements OnInit{
         this.paradas=resp
       }
     )
+    this.rService.obtenerRutaPorId(this.aRoute.snapshot.params["id"]).subscribe(resp=>{
+      this.ruta=resp
+    })
   }
-
-  crearRuta():void{
+  editarParada():void{
     if(this.validacionCorrecta()){
       Swal.fire({
-        title: '¿Seguro que quieres crear la ruta?',
+        title: '¿Seguro que quieres editar la ruta?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -48,56 +44,44 @@ export class NuevaRutaComponent implements OnInit{
         confirmButtonText: 'Sí',
         cancelButtonText: 'No'
       }).then(resp=>{
-        if(resp.isConfirmed){
-          let ruta:RutaSubmit={
-            nombre:this.nombre,
-            horaSalida:this.horaSalida,
-            horaLlegada:this.horaLlegada,
-            usuarios:[],
-            paradas:this.idParadas,
-            autobuses:this.idBuses
-          }
-          this.rService.crearRuta(ruta).subscribe(resp=>{
-            Swal.fire(
-              '¡Correcto!',
-              'La ruta ha sido creada con éxito',
-              'success')
-              this.router.navigate(['/rutasAdmin'])
-          })
-        }
+        this.rService.actualizarRuta(this.ruta).subscribe(resp=>{
+          Swal.fire(
+            '¡Correcto!',
+            'La ruta ha sido actualizada con éxito',
+            'success')
+            this.router.navigate(['/rutasAdmin'])
+        })
       })
     }
   }
-
   validacionCorrecta():boolean{
-    console.log(this.horaSalida)
     let validacionCorrecta=true
-    if(!this.nombre){
+    if(!this.ruta.nombre){
       document.getElementsByName("nombre")[0].classList.add("is-invalid")
       validacionCorrecta=false;
     }
     else{
       document.getElementsByName("nombre")[0].classList.remove("is-invalid")
     }
-    if(!this.horaSalida){
+    if(!this.ruta.horaSalida){
       document.getElementsByName("horaSalida")[0].classList.add("is-invalid")
       validacionCorrecta=false;
     }
     else{
       document.getElementsByName("horaSalida")[0].classList.remove("is-invalid")
     }
-    if(!this.horaLlegada){
+    if(!this.ruta.horaLlegada){
       document.getElementsByName("horaLlegada")[0].classList.add("is-invalid")
       validacionCorrecta=false;
     }
     else{
       document.getElementsByName("horaLlegada")[0].classList.remove("is-invalid")
     }
-    if(!this.idParadas){
+    if(!this.ruta.paradas){
       document.getElementsByName("paradas")[0].classList.add("is-invalid")
       validacionCorrecta=false
     }
-    else if(this.idParadas.length<2){
+    else if(this.ruta.paradas.length<2){
       Swal.fire(
         '¡Error!',
         'Debe introducir al menos dos paradas',
@@ -107,11 +91,11 @@ export class NuevaRutaComponent implements OnInit{
     else{
       document.getElementsByName("paradas")[0].classList.remove("is-invalid")
     }
-    if(!this.idBuses || this.idBuses.length==0){
+    if(!this.ruta.autobuses || this.ruta.autobuses.length==0){
       document.getElementsByName("buses")[0].classList.add("is-invalid")
       validacionCorrecta=false
     }
-    else if(this.idBuses.length>2){
+    else if(this.ruta.autobuses.length>2){
       Swal.fire(
         '¡Error!',
         'Las rutas deben tener como máximo 2 autobuses asignados',
@@ -121,7 +105,7 @@ export class NuevaRutaComponent implements OnInit{
     else{
       document.getElementsByName("buses")[0].classList.remove("is-invalid")
     }
-    if(this.horaLlegada<this.horaSalida){
+    if(this.ruta.horaLlegada<this.ruta.horaSalida){
       Swal.fire(
         '¡Error!',
         'La hora de salida no puede ser mayor a la hora de llegada.',
@@ -130,4 +114,4 @@ export class NuevaRutaComponent implements OnInit{
     }
     return validacionCorrecta
   }
-} 
+}
