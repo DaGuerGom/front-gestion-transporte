@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="pt-4 d-flex justify-content-center">{{ruta.nombre}}</h2>
+    </div>
+  </div>
+  <div class="row align-items-center d-flex justify-content-center pt-4">
+    <div class="col-md-2 col-12">
+      <label for="nombre" class="d-flex label">Autobús:</label>
+    </div>
+    <div class="col-md-4 col-12">
+      <select class="form-select" aria-label="select example" [(ngModel)]="idAutobus" name="autobus">
+        <option value="0" selected>Seleccione un autobús...</option>
+        <option *ngFor="let autobus of autobuses | async" [value]="autobus.id">{{autobus.nombre}}</option>
+      </select>
+    </div>
+    <div class="col-md-2 col-12">
+        <label for="nombre" class="d-flex label">Parada:</label>
+      </div>
+      <div class="col-md-4 col-12">
+        <select class="form-select" aria-label="select example" [(ngModel)]="idParada" name="parada">
+          <option value="0" selected>Seleccione una parada...</option>
+          <option *ngFor="let parada of paradas | async" [value]="parada.id">{{parada.nombre}}</option>
+        </select>
+      </div>
+  </div>
+  <div class="row pt-4">
+    <div class="col-md-3 col-12"></div>
+    <div class="col-md-9 col-12 d-flex justify-content-between flex-column flex-md-row">
+      <button type="button" class="btn btn-dark mb-2 mb-md-0" (click)="asignarRuta()">Crear</button>
+      <button type="button" class="btn btn-danger" [routerLink]="['/rutas']">Cancelar</button>
+    </div>
+  </div>
+</div>

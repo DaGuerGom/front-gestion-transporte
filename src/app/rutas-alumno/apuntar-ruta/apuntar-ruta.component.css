@@ -1,0 +1,10 @@
+.label{
+    justify-content: end;
+}
+
+@media (max-width: 768px) {
+    .label {
+      justify-content: start;
+    }
+  }
+  

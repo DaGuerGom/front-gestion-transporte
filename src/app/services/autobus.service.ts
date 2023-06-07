@@ -7,6 +7,7 @@ import { Autobus, AutobusSubmit } from '../interfaces/autobus';
   providedIn: 'root'
 })
 export class AutobusService {
+  
 
   url:string="http://localhost:8080/api/v1/bus"
 
@@ -16,6 +17,16 @@ export class AutobusService {
     return this.http.get<Autobus[]>(this.url)
   }
 
+  obtenerAutobusesDeRuta(idRuta:number):Observable<Autobus[]>{
+    return this.http.get<Autobus[]>("http://localhost:8080/api/v1/busesDeRuta/"+idRuta)
+  }
+
+  //Buses que no tienen la capacidad completa en una ruta determinada
+  obtenerAutobusesLibresDeRuta(idRuta:number):Observable<Autobus[]>{
+    return this.http.get<Autobus[]>("http://localhost:8080/api/v1/busesDeRuta/"+idRuta+"/sinOcupar")
+  }
+
+  //Buses que están en menos de dos rutas asignadas
   obtenerAutobusesLibres():Observable<Autobus[]>{
     return this.http.get<Autobus[]>(this.url+"Libre")
   }
