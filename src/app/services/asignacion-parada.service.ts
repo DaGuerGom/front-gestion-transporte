@@ -15,6 +15,10 @@ export class AsignacionParadaService {
     return this.http.get<any[]>(this.url)
   }
 
+  obtenerAsignacionesDeRuta(id:number):Observable<any[]>{
+    return this.http.get<any[]>(this.url+"DeRuta/"+id)
+  }
+
   asignar(body:any):Observable<any>{
     return this.http.post<any>(this.url,body)
   }
