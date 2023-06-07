@@ -28,7 +28,6 @@ export class RegistroComponent {
     tipo:this.tipo,
     admitido:"P",
     rutas:[],
-    paradas:[]
     }
     this.service.registrarUsuario(usuario).subscribe(
       ((resp)=>{Swal.fire(

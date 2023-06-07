@@ -17,7 +17,9 @@ export class UsuarioService {
     let url = this.url+"/" + this.authService.username
     return this.http.get<any>(url, {observe: 'response' })
 }
-
+obtenerConductores():Observable<any>{
+  return this.http.get<any>(this.url+"/conductores")
+}
   registrarUsuario(usuario:UsuarioRegistro):Observable<any>{
     return this.http.post<any>(this.url,usuario)
   }

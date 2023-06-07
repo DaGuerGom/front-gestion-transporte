@@ -8,6 +8,11 @@
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="rutaHome" aria-current="page">Inicio</a>
         </li>
+        <div *ngIf="usuarioActivo.tipo=='al'" class="d-lg-flex">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/rutas'">Rutas</a>
+          </li>
+        </div>
         <div *ngIf="usuarioActivo.tipo=='ad'" class="d-lg-flex">
           <li class="nav-item">
             <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/solicitudes'">Solicitudes <span class="px-2 rounded-circle" [ngClass]="{'notificacion':this.router.url!='/solicitudes'}" *ngIf="usuariosPendientes!=0 && this.router.url!='/solicitudes'">{{usuariosPendientes}}</span></a>

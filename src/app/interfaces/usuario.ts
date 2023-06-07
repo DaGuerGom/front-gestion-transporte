@@ -4,7 +4,6 @@ export interface Usuario{
     tipo:string,
     admitido:string,
     rutas:number[];
-    paradas:number[];
 }
 
 export interface UsuarioLogin{
@@ -20,5 +19,4 @@ export interface UsuarioRegistro{
     tipo:string,
     admitido:string,
     rutas:number[];
-    paradas:number[];
 }

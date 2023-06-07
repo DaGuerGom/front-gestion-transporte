@@ -3,9 +3,12 @@ import { Router } from '@angular/router';
 import { Autobus } from 'src/app/interfaces/autobus';
 import { Parada } from 'src/app/interfaces/parada';
 import { Ruta, RutaSubmit } from 'src/app/interfaces/ruta';
+import { Usuario } from 'src/app/interfaces/usuario';
+import { AsignacionBusService } from 'src/app/services/asignacion-bus.service';
 import { AutobusService } from 'src/app/services/autobus.service';
 import { ParadaService } from 'src/app/services/parada.service';
 import { RutaService } from 'src/app/services/ruta.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -19,10 +22,12 @@ export class NuevaRutaComponent implements OnInit{
   horaLlegada!:string;
   autobusesLibres!:Autobus[]
   paradas!:Parada[]
+  conductores!:Usuario[]
   idParadas!:number[]
   idBuses!:number[]
-
-  constructor(private router:Router, private rService:RutaService, private pService:ParadaService,private aService:AutobusService){}
+  usernameConductores!:string[]
+  constructor(private router:Router, private rService:RutaService, private pService:ParadaService,private aService:AutobusService, private userService:UsuarioService,
+    private asignacionService:AsignacionBusService){}
 
   ngOnInit(): void {
     this.aService.obtenerAutobusesLibres().subscribe(
@@ -35,6 +40,9 @@ export class NuevaRutaComponent implements OnInit{
         this.paradas=resp
       }
     )
+    this.userService.obtenerConductores().subscribe(resp=>{
+      this.conductores=resp
+    })
   }
 
   crearRuta():void{
@@ -53,11 +61,22 @@ export class NuevaRutaComponent implements OnInit{
             nombre:this.nombre,
             horaSalida:this.horaSalida,
             horaLlegada:this.horaLlegada,
-            usuarios:[],
+            usuarios:this.usernameConductores,
             paradas:this.idParadas,
             autobuses:this.idBuses
           }
           this.rService.crearRuta(ruta).subscribe(resp=>{
+            console.log(resp)
+            for(let conductor of this.usernameConductores){
+              for(let autobus of this.idBuses){
+                let asignacion={
+                  username:conductor,
+                  ruta:resp.id,
+                  autobus:autobus
+                }
+                this.asignacionService.asignar(asignacion).subscribe()
+              }
+            }
             Swal.fire(
               '¡Correcto!',
               'La ruta ha sido creada con éxito',
@@ -70,7 +89,6 @@ export class NuevaRutaComponent implements OnInit{
   }
 
   validacionCorrecta():boolean{
-    console.log(this.horaSalida)
     let validacionCorrecta=true
     if(!this.nombre){
       document.getElementsByName("nombre")[0].classList.add("is-invalid")
@@ -78,6 +96,13 @@ export class NuevaRutaComponent implements OnInit{
     }
     else{
       document.getElementsByName("nombre")[0].classList.remove("is-invalid")
+    }
+    if(!this.usernameConductores){
+      document.getElementsByName("conductores")[0].classList.add("is-invalid")
+      validacionCorrecta=false;
+    }
+    else{
+      document.getElementsByName("conductores")[0].classList.remove("is-invalid")
     }
     if(!this.horaSalida){
       document.getElementsByName("horaSalida")[0].classList.add("is-invalid")
