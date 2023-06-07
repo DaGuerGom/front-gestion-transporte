@@ -21,6 +21,10 @@ export class RutaService {
     return this.http.get<Ruta>(url)
   }
 
+  obtenerRutasPorConductor(username:string):Observable<Ruta[]>{
+    return this.http.get<Ruta[]>("http://localhost:8080/api/v1/rutasDeUsuario/"+username)
+  }
+
   crearRuta(ruta:RutaSubmit):Observable<Ruta>{
     return this.http.post<Ruta>(this.url,ruta)
   }
