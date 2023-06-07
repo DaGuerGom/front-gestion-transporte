@@ -10,7 +10,10 @@
         </li>
         <div *ngIf="usuarioActivo.tipo=='al'" class="d-lg-flex">
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/rutas'">Rutas</a>
+            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/rutas'">Rutas Disponibles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/misRutas'">Mis Rutas</a>
           </li>
         </div>
         <div *ngIf="usuarioActivo.tipo=='ad'" class="d-lg-flex">
