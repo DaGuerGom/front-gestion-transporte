@@ -6,33 +6,33 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="rutaHome" aria-current="page">Inicio</a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="rutaHome" aria-current="page">Inicio</a>
         </li>
         <div *ngIf="usuarioActivo.tipo=='al'" class="d-lg-flex">
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/rutas'">Rutas Disponibles</a>
+            <a class="nav-link" routerLinkActive="active" [routerLink]="'/rutas'">Rutas Disponibles</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/misRutas'">Mis Rutas</a>
+            <a class="nav-link" routerLinkActive="active" [routerLink]="'/misRutas'">Mis Rutas</a>
           </li>
         </div>
         <div *ngIf="usuarioActivo.tipo=='c'" class="d-lg-flex">
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="['/rutas',usuarioActivo.username]">Rutas asignadas</a>
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['/rutas',usuarioActivo.username]">Rutas asignadas</a>
           </li>
         </div>
         <div *ngIf="usuarioActivo.tipo=='ad'" class="d-lg-flex">
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/solicitudes'">Solicitudes <span class="px-2 rounded-circle" [ngClass]="{'notificacion':this.router.url!='/solicitudes'}" *ngIf="usuariosPendientes!=0 && this.router.url!='/solicitudes'">{{usuariosPendientes}}</span></a>
+            <a class="nav-link" routerLinkActive="active" [routerLink]="'/solicitudes'">Solicitudes <span class="px-2 rounded-circle" [ngClass]="{'notificacion':this.router.url!='/solicitudes'}" *ngIf="usuariosPendientes!=0 && this.router.url!='/solicitudes'">{{usuariosPendientes}}</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/paradasAdmin'">Paradas</a>
+            <a class="nav-link" routerLinkActive="active" [routerLink]="'/paradasAdmin'">Paradas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/autobuses'">Autobuses</a>
+            <a class="nav-link" routerLinkActive="active" [routerLink]="'/autobuses'">Autobuses</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active rounded-circle" [routerLink]="'/rutasAdmin'">Rutas</a>
+            <a class="nav-link" routerLinkActive="active" [routerLink]="'/rutasAdmin'">Rutas</a>
           </li>
         </div>
       </ul>

@@ -29,6 +29,7 @@ import { ApuntarRutaComponent } from './rutas-alumno/apuntar-ruta/apuntar-ruta.c
 import { MisRutasComponent } from './mis-rutas/mis-rutas.component';
 import { RutasConductorComponent } from './rutas-conductor/rutas-conductor.component';
 import { AsignacionesRutaComponent } from './rutas-conductor/asignaciones-ruta/asignaciones-ruta.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { AsignacionesRutaComponent } from './rutas-conductor/asignaciones-ruta/a
     ApuntarRutaComponent,
     MisRutasComponent,
     RutasConductorComponent,
-    AsignacionesRutaComponent
+    AsignacionesRutaComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

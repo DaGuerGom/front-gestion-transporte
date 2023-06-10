@@ -8,10 +8,15 @@ html{
 
 .active{
     background-color: black;
+    border-radius: 5px;
     color: white !important;
 }
 
 .notificacion{
     background-color: red;
     color: white !important;
+}
+
+.nav-item{
+    padding:10px;
 }
