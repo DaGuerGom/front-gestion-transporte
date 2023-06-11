@@ -57,11 +57,11 @@ export class RegistroComponent {
   }
   validacionCorrecta():boolean{
     let validacionCorrecta=true;
-    const textoRegex: RegExp = /^(?!.*\s).*\S.*$/;
+    const usernameRegex: RegExp = /^[a-z0-9]+$/;
     const passwordRegex: RegExp = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W)(?!.*\s).{8,16}$/;
     const emailRegex: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    if (!textoRegex.test(this.username)){
+    if (!usernameRegex.test(this.username)){
       document.getElementsByName("username")[0].classList.add("is-invalid")
       validacionCorrecta=false
     }
