@@ -17,6 +17,10 @@ export class UsuarioService {
     let url = this.url+"/" + this.authService.username
     return this.http.get<any>(url, {observe: 'response' })
 }
+obtenerUsuarioPorUsername(username:string): Observable<any> {
+  let url = this.url+"/" + username
+  return this.http.get<any>(url, {observe: 'response' })
+}
 obtenerConductores():Observable<any>{
   return this.http.get<any>(this.url+"/conductores")
 }

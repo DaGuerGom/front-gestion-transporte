@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { UsuarioLogin } from '../interfaces/usuario';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -48,7 +49,11 @@ export class InicioSesionComponent implements OnInit {
         this.router.navigate([ruta]);
       },
       (error)=>{
-        console.log("Credenciales incorrectas")
+        Swal.fire(
+          '¡Error!',
+          'Las credenciales que has introducido no son correctas.',
+          'error'
+        )
       }
     )
   }

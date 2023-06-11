@@ -29,18 +29,32 @@ export class RegistroComponent {
     admitido:"P",
     rutas:[],
     }
-    this.service.registrarUsuario(usuario).subscribe(
-      ((resp)=>{Swal.fire(
-        '¡Conseguido!',
-        'El usuario ha sido registrado con éxito',
-        'success')
-        this.router.navigate([""])
+    this.service.obtenerUsuarioPorUsername(this.username).subscribe( //Para comprobar que el usuario no existe en la base de datos
+    //Si obtenemos una respuesta, quiere decir que el usuario existe y debemos mostrar un mensaje de error.
+      resp=>{
+        if(resp.body.length!=0){
+          Swal.fire(
+            '¡Error!',
+            'Ya existe un usuario con ese nombre.',
+            'error'
+          )
+        }
+      },
+      //Si la petición nos da un error, es porque no se encuentra un body en la respuesta, es decir, el usuario no existe, y podemos crearlo.
+      error=>{
+        this.service.registrarUsuario(usuario).subscribe(
+          ((resp)=>{Swal.fire(
+            '¡Conseguido!',
+            'El usuario ha sido registrado con éxito',
+            'success')
+            this.router.navigate([""])
+          }
+          )
+        )
       }
-      )
     )
   }
   }
-
   validacionCorrecta():boolean{
     let validacionCorrecta=true;
     const textoRegex: RegExp = /^(?!.*\s).*\S.*$/;
