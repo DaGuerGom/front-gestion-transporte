@@ -1,5 +1,19 @@
 <app-menu></app-menu>
-<div class="container-fluid">
-    <app-portada></app-portada>
+<app-portada></app-portada>
+<div class="d-flex justify-content-center text-center">
+    <p class="h2 pt-4">Panel de Administración.</p>
+</div>
+
+<div class="d-flex flex-column align-items-center">
+    <button type="button" class="btn btn-dark" [routerLink]="['/solicitudes']">Gestionar Solicitudes</button>
+</div>
+<div class="d-flex flex-column align-items-center">
+    <button type="button" class="btn btn-dark" [routerLink]="['/paradasAdmin']">Gestionar Paradas</button>
+</div>
+<div class="d-flex flex-column align-items-center">
+    <button type="button" class="btn btn-dark" [routerLink]="['/autobuses']">Gestionar Autobuses</button>
+</div>
+<div class="d-flex flex-column align-items-center">
+    <button type="button" class="btn btn-dark" [routerLink]="['/rutasAdmin']">Gestionar Rutas</button>
 </div>
 <app-footer></app-footer>
