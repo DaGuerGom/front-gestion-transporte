@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AsignacionCompletaService {
-  url:string="http://localhost:8080/api/v1/misRutas"
+  url:string="http://backendgestiontransporte-env.eba-3txpmryu.us-east-1.elasticbeanstalk.com/api/v1/misRutas"
   constructor(private http:HttpClient) { }
 
   obtenerAsignacionesDeUsuario(username:string):Observable<any[]>{

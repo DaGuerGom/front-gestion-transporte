@@ -25,7 +25,7 @@ export class AuthService implements OnInit {
   }
 
   iniciarSesion(credentials: UsuarioLogin): Observable<any> {
-    const url = 'http://localhost:8080/login';
+    const url = 'http://backendgestiontransporte-env.eba-3txpmryu.us-east-1.elasticbeanstalk.com/login';
     return this.http.post<any>(url, credentials, {observe:'response'});
   }
 
@@ -43,7 +43,7 @@ export class AuthService implements OnInit {
   }
 
   findUserByUsername(username:string):Observable<Usuario>{
-    let url="http://localhost:8080/api/v1/users/"+username;
+    let url="http://backendgestiontransporte-env.eba-3txpmryu.us-east-1.elasticbeanstalk.com/api/v1/users/"+username;
     return this.http.get<Usuario>(url)
   }
 }

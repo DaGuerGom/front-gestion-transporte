@@ -9,7 +9,7 @@ import { Autobus, AutobusSubmit } from '../interfaces/autobus';
 export class AutobusService {
   
 
-  url:string="http://localhost:8080/api/v1/bus"
+  url:string="http://backendgestiontransporte-env.eba-3txpmryu.us-east-1.elasticbeanstalk.com/api/v1/bus"
 
   constructor(private http:HttpClient) { }
 
@@ -18,12 +18,12 @@ export class AutobusService {
   }
 
   obtenerAutobusesDeRuta(idRuta:number):Observable<Autobus[]>{
-    return this.http.get<Autobus[]>("http://localhost:8080/api/v1/busesDeRuta/"+idRuta)
+    return this.http.get<Autobus[]>("http://backendgestiontransporte-env.eba-3txpmryu.us-east-1.elasticbeanstalk.com/api/v1/busesDeRuta/"+idRuta)
   }
 
   //Buses que no tienen la capacidad completa en una ruta determinada
   obtenerAutobusesLibresDeRuta(idRuta:number):Observable<Autobus[]>{
-    return this.http.get<Autobus[]>("http://localhost:8080/api/v1/busesDeRuta/"+idRuta+"/sinOcupar")
+    return this.http.get<Autobus[]>("http://backendgestiontransporte-env.eba-3txpmryu.us-east-1.elasticbeanstalk.com/api/v1/busesDeRuta/"+idRuta+"/sinOcupar")
   }
 
   //Buses que están en menos de dos rutas asignadas

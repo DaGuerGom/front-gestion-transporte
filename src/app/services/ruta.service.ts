@@ -8,7 +8,7 @@ import { Ruta, RutaSubmit } from '../interfaces/ruta';
 })
 export class RutaService {
 
-  url:string="http://localhost:8080/api/v1/routes"
+  url:string="http://backendgestiontransporte-env.eba-3txpmryu.us-east-1.elasticbeanstalk.com/api/v1/routes"
 
   constructor(private http:HttpClient) { }
 
@@ -22,7 +22,7 @@ export class RutaService {
   }
 
   obtenerRutasPorConductor(username:string):Observable<Ruta[]>{
-    return this.http.get<Ruta[]>("http://localhost:8080/api/v1/rutasDeUsuario/"+username)
+    return this.http.get<Ruta[]>("http://backendgestiontransporte-env.eba-3txpmryu.us-east-1.elasticbeanstalk.com/api/v1/rutasDeUsuario/"+username)
   }
 
   crearRuta(ruta:RutaSubmit):Observable<Ruta>{

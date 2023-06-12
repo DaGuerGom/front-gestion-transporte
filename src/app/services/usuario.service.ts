@@ -9,7 +9,7 @@ import { Usuario, UsuarioRegistro } from '../interfaces/usuario';
 })
 export class UsuarioService {
 
-  url:string="http://localhost:8080/api/v1/users"
+  url:string="http://backendgestiontransporte-env.eba-3txpmryu.us-east-1.elasticbeanstalk.com/api/v1/users"
 
   constructor(private authService:AuthService, private http:HttpClient) { }
 

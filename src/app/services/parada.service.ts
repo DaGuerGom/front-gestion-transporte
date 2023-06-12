@@ -8,7 +8,7 @@ import { Parada, ParadaSubmit } from '../interfaces/parada';
 })
 export class ParadaService {
 
-  url:string="http://localhost:8080/api/v1/paradas"
+  url:string="http://backendgestiontransporte-env.eba-3txpmryu.us-east-1.elasticbeanstalk.com/api/v1/paradas"
 
   constructor(private http:HttpClient) { }
 
@@ -21,7 +21,7 @@ export class ParadaService {
     return this.http.get<Parada>(url)
   }
   obtenerParadasDeRuta(idRuta:number):Observable<Parada[]>{
-    return this.http.get<Parada[]>("http://localhost:8080/api/v1/paradasDeRuta/"+idRuta)
+    return this.http.get<Parada[]>("http://backendgestiontransporte-env.eba-3txpmryu.us-east-1.elasticbeanstalk.com/api/v1/paradasDeRuta/"+idRuta)
   }
   crearParada(parada:ParadaSubmit):Observable<Parada>{
     return this.http.post<Parada>(this.url,parada)

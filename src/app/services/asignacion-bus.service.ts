@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AsignacionBusService {
 
-  url:string="http://localhost:8080/api/v1/asignacionesBuses"
+  url:string="http://backendgestiontransporte-env.eba-3txpmryu.us-east-1.elasticbeanstalk.com/api/v1/asignacionesBuses"
 
   constructor(private http:HttpClient) { }
 
