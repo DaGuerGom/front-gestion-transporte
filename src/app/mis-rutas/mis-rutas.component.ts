@@ -18,7 +18,7 @@ export class MisRutasComponent extends MenuComponent implements OnInit {
     override async ngOnInit(): Promise<void> {
       super.ngOnInit().then(resp=>{
         this.asigService.obtenerAsignacionesDeUsuario(this.usuarioActivo.username).subscribe(resp=>{this.asignaciones=resp
-        console.log(this.asignaciones)})
+        })
       })
     }
 }
