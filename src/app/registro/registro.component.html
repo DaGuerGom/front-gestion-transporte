@@ -19,7 +19,7 @@
                     <div class="row">
                         <label for="username">Nombre de usuario:</label>
                         <input class="input form-control" type="text" name="username" id="username" [(ngModel)]="username" >
-                        <div class="invalid-tooltip">El nombre de usuario debe ser válido: No estar vacío, no tener espacios y carácteres en minúscula.</div>
+                        <div class="invalid-tooltip">El nombre de usuario debe ser válido: No estar vacío, no tener espacios y contener solamente carácteres en minúscula.</div>
                     </div>
                 </div>
                 <div class="col-9 pt-4">
@@ -33,7 +33,7 @@
                     <div class="row">
                         <label for="contrasenna">Contraseña</label>
                         <input class="input form-control" type="password" name="contrasenna" id="contrasenna" [(ngModel)]="password">
-                        <div class="invalid-tooltip">La contraseña debe tener entre 8 y 16 caracteres, y al menos una mayúscula, una minúscula y un carácter no alfanumérico</div>
+                        <div class="invalid-tooltip">La contraseña debe tener entre 8 y 16 caracteres, y al menos una mayúscula, una minúscula, un número y un carácter no alfanumérico</div>
                     </div>
                 </div>
                 <div class="col-9 pt-4">
